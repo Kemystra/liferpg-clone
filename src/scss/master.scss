@@ -1,5 +1,45 @@
 @use 'colors';
+@use 'sass:math';
+
+$navbar-height: 90vh;
+$navbar-width: 5vw;
 
 * {
     box-sizing: border-box;
+}
+
+html {
+    width: 100vw;
+    height: 100%;
+}
+
+body {
+    width: 100%;
+    height: 200%;
+    margin: 0;
+}
+
+#navbar {
+    /* 
+    ? 何 the heck, how do I vertically center this thing
+    */
+    margin: 2.5vh 1vw;
+    padding: 0;
+    height: $navbar-height;
+    width: $navbar-width;
+    position: fixed;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+    background-color: grey;
+}
+
+main {
+    margin: 0 (2vw + $navbar-width);
+    height: 100%;
+    min-width: 0%;
+    background-color: aqua;
 }
