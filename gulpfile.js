@@ -11,7 +11,7 @@ const gulpSass = require("gulp-sass");
 const sassPlugin = gulpSass(dartSass);
 
 // Params specific to this project
-const buildFolder = "./build";
+const buildFolder = "./public";
 
 // Gulp always passes a callback function as 1st argument in a task
 // This can be used to mark end of task.
