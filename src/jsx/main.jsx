@@ -1,5 +1,11 @@
-const React = require("react");
-const ReactDOM = require("react-dom/client");
+import * as React from 'react';
+import * as ReactDOM from  'react-dom/client';
+import { createClient } from '@supabase/supabase-js'
+
+// Supabase stuff
+const supabaseUrl = 'https://qxjxlinixufdsasuwmvy.supabase.co';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF4anhsaW5peHVmZHNhc3V3bXZ5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2Njg4NjkxMjgsImV4cCI6MTk4NDQ0NTEyOH0.EeYpdNC4Mh9Vd1olibBqPz2RbXk_mz8aTNYwamxcm_I'
+const supabase = createClient(supabaseUrl, supabaseKey);
 
 let testData = [
     {
@@ -13,6 +19,7 @@ let testData = [
     }
 ];
 
+// ! React components MUST start with uppercase
 function Quest(props) {
     return <div>
         <p id="quest-title">{props.title}</p>
