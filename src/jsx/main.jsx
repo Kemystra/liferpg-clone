@@ -55,9 +55,11 @@ const QuestList = props => {
 
 // ==================================== Main Section ====================================
 // If you have code that needs to do asynchronous stuff, put it here please :)
+/*
 (async () => {
 
 })();
+*/
 
 // Set root for quest list
 const root = ReactDOM.createRoot(document.getElementById("quest-list"));

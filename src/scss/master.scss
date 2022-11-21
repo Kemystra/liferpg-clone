@@ -45,7 +45,10 @@ h1 {
     height: $navbar-height;
     width: $navbar-width;
     position: sticky;
-    //top: math.div(100vh - $navbar-height, 2);
+    top: math.div(100vh - $navbar-height, 2);
+
+    // To make sure that it is just under the banner...
+    align-self: flex-start;
 
     display: flex;
     flex-direction: column;
