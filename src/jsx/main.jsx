@@ -46,7 +46,7 @@ const QuestList = props => {
         })();
     }, []);
 
-    return <div className="root-container">
+    return <div id="quest-root-container">
         {questsData.map((data, index) => 
             <Quest key={index} title={data.title} description={data.description}/>
             )}
@@ -63,4 +63,4 @@ const QuestList = props => {
 
 // Set root for quest list
 const root = ReactDOM.createRoot(document.getElementById("quest-list"));
-root.render(<QuestList arr={[]} />);
+root.render(<QuestList />);
