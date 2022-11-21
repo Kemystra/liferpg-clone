@@ -10,7 +10,7 @@ $navbar-width: 5vw;
 
 html {
     width: 100vw;
-    height: 200%;
+    height: 200vh;
 }
 
 body {
@@ -32,6 +32,20 @@ h1 {
     text-align: center;
 }
 
+main {
+    height: 100%;
+    width: 100%;
+    background-color: #ddd;
+
+    display: grid;
+    grid-template-areas:
+    "navbar quest-list quest-list ."
+    "navbar quest-list quest-list .";
+    grid-template-columns: ($navbar-width + 2vw) repeat(3, 1fr);
+    justify-items: center;
+    align-items: flex-start;
+}
+
 #navbar {
     /* 
     * When using fixed or absolute position, you need to use the 
@@ -47,9 +61,6 @@ h1 {
     position: sticky;
     top: math.div(100vh - $navbar-height, 2);
 
-    // To make sure that it is just under the banner...
-    align-self: flex-start;
-
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -58,23 +69,15 @@ h1 {
     background-color: grey;
 }
 
-main {
-    height: 100%;
-    width: 100%;
-    background-color: #ddd;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-}
-
 #quest-list {
-    margin-left: 2rem;
+    width: 90%;
+    height: 90%;
+    grid-area: quest-list;
+    //margin-left: 2rem;
     background-color: #444;
 }
 
-.root-container {
+#quest-root-container {
     width: 100%;
     height: 100%;
 }
