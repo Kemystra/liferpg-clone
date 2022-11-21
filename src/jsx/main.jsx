@@ -22,8 +22,8 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 // ! React components MUST start with uppercase
 const Quest = props => {
     return <div>
-        <p class="quest-title">{props.title}</p>
-        <p class="quest-desc">{props.description}</p>
+        <p className="quest-title">{props.title}</p>
+        <p className="quest-desc">{props.description}</p>
     </div>
 }
 
