@@ -7,7 +7,7 @@
 
 import * as React from 'react';
 import * as ReactDOM from  'react-dom/client';
-import { createClient } from '@supabase/supabase-js'
+import { createClient } from '@supabase/supabase-js';
 
 // =============================== Fetching Data Section ===============================
 // Supabase stuff
@@ -19,11 +19,12 @@ const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9'
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 // ============================== React Components Section ==============================
-// ! React components MUST start with uppercase
-const Quest = props => {
-    return <div>
-        <p className="quest-title">{props.title}</p>
-        <p className="quest-desc">{props.description}</p>
+
+const EditorPopup = props => {
+    return <div id="bg-cover" onClick={props.onCanceled}>
+        <div id="main-popup">
+            {props.content}
+        </div>
     </div>
 }
 
@@ -50,6 +51,44 @@ const QuestList = props => {
         {questsData.map((data, index) => 
             <Quest key={index} title={data.title} description={data.description}/>
             )}
+    </div>
+}
+
+// ! React components MUST start with uppercase
+const Quest = props => {
+    const [isEditing, setIsEditing] = React.useState(false);
+
+    function startEditing() {
+        setIsEditing(true);
+    }
+
+    function handleCanceledEdits() {
+        setIsEditing(false);
+    }
+
+    function handleFinishedEdits() {
+        // update back to Supabase
+    }
+
+    return <div className="quest">
+        <div className="quest-text-part">
+            <p className="quest-text quest-title">{props.title}</p>
+            <p className="quest-text quest-desc">{props.description}</p>
+        </div>
+        <div className="quest-action-part">
+            <button className="quest-edit"
+                onClick={startEditing}
+            >Edit</button>
+            <button className="quest-complete">Comp</button>
+            {
+                isEditing &&
+                <EditorPopup
+                    content="Hello, World!"
+                    onCanceled={handleCanceledEdits}
+                    onFinished={handleFinishedEdits}
+                />
+            }
+        </div>
     </div>
 }
 

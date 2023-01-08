@@ -3,6 +3,7 @@
 
 $navbar-height: 90vh;
 $navbar-width: 5vw;
+$quest-text-part-width: 70%;
 
 * {
     box-sizing: border-box;
@@ -40,11 +41,35 @@ main {
 
     display: grid;
     grid-template-areas:
-    "navbar quest-list quest-list ."
-    "navbar quest-list quest-list .";
-    grid-template-columns: ($navbar-width + 2vw) repeat(3, 1fr);
+    "navbar quest-list ."
+    "navbar quest-list .";
+    grid-template-columns: ($navbar-width + 2vw) repeat(2, 1fr);
     justify-items: center;
     align-items: flex-start;
+}
+
+#bg-cover {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+
+    background-color: #00000033;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#main-popup {
+    width: 30%;
+    height: 30%;
+
+    background-color: white;
+
+    overflow-y: scroll;
 }
 
 #navbar {
@@ -80,4 +105,47 @@ main {
 
 #quest-list {
     height: 100%;
+    padding: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    gap: 1rem;
+}
+
+.quest {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    align-items: center;
+
+    background-color: #eee;
+
+    div {
+        height: 100%;
+    }
+}
+
+.quest-text-part {
+    width: $quest-text-part-width;
+}
+
+.quest-action-part {
+    padding-right: 1rem;
+    width: 100% - $quest-text-part-width;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+
+    gap: 1rem;
+}
+
+.quest-text {
+    margin: 0;
 }
