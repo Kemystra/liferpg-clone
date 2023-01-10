@@ -79,15 +79,15 @@ const QuestBar = props => {
                 onClick={startEditing}
             >Edit</button>
             <button className="quest-complete">Comp</button>
-            {
-                isEditing &&
-                <Popup
-                    content="Hello, World!"
-                    onCanceled={handleCanceledEdits}
-                    onFinished={handleFinishedEdits}
-                />
-            }
         </div>
+        {
+            isEditing &&
+            <Popup
+                content="Hello, World!"
+                onCanceled={handleCanceledEdits}
+                onFinished={handleFinishedEdits}
+            />
+        }
     </div>
 }
 
