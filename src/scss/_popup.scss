@@ -1,3 +1,15 @@
+@keyframes slideUp {
+    0% {
+        opacity: 80%;
+        transform: translateY(5%);
+    }
+
+    100% {
+        opacity: 100%;
+        transform: translateY(0);
+    }
+}
+
 #bg-cover {
     position: fixed;
     top: 0;
@@ -21,5 +33,5 @@
 
     overflow-y: scroll;
 
-
+    animation: 0.2s ease-out 0s 1 slideUp;
 }
