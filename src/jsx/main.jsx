@@ -8,6 +8,9 @@
 import * as React from 'react';
 import * as ReactDOM from  'react-dom/client';
 import { createClient } from '@supabase/supabase-js';
+import { Popup } from './popup.jsx';
+import { Quest } from './classes/quest.jsx';
+import { Navbar } from './navbar.jsx';
 
 // =============================== Fetching Data Section ===============================
 // Supabase stuff
@@ -20,15 +23,7 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 
 // ============================== React Components Section ==============================
 
-const EditorPopup = props => {
-    return <div id="bg-cover" onClick={props.onCanceled}>
-        <div id="main-popup">
-            {props.content}
-        </div>
-    </div>
-}
-
-const QuestList = props => {
+const App = props => {
     const [questsData, setQuestsData] = React.useState([]);
 
     React.useEffect(() => {
@@ -47,15 +42,18 @@ const QuestList = props => {
         })();
     }, []);
 
-    return <div id="quest-list">
+    return <main>
+        <Navbar />
+        <section id="quest-list">
         {questsData.map((data, index) => 
-            <Quest key={index} title={data.title} description={data.description}/>
+            <QuestBar key={index} quest={new Quest(data.title, data.description)}/>
             )}
-    </div>
+    </section>
+    </main>
 }
 
 // ! React components MUST start with uppercase
-const Quest = props => {
+const QuestBar = props => {
     const [isEditing, setIsEditing] = React.useState(false);
 
     function startEditing() {
@@ -68,12 +66,13 @@ const Quest = props => {
 
     function handleFinishedEdits() {
         // update back to Supabase
+        setIsEditing(false);
     }
 
     return <div className="quest">
         <div className="quest-text-part">
-            <p className="quest-text quest-title">{props.title}</p>
-            <p className="quest-text quest-desc">{props.description}</p>
+            <p className="quest-text quest-title">{props.quest.title}</p>
+            <p className="quest-text quest-desc">{props.quest.description}</p>
         </div>
         <div className="quest-action-part">
             <button className="quest-edit"
@@ -82,7 +81,7 @@ const Quest = props => {
             <button className="quest-complete">Comp</button>
             {
                 isEditing &&
-                <EditorPopup
+                <Popup
                     content="Hello, World!"
                     onCanceled={handleCanceledEdits}
                     onFinished={handleFinishedEdits}
@@ -101,5 +100,5 @@ const Quest = props => {
 */
 
 // Set root for quest list
-const root = ReactDOM.createRoot(document.getElementById("quest-root-container"));
-root.render(<QuestList />);
+const root = ReactDOM.createRoot(document.getElementById("ui-root"));
+root.render(<App />);

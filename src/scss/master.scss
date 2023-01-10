@@ -34,10 +34,15 @@ h1 {
     text-align: center;
 }
 
-main {
+#ui-root {
     height: 100%;
     width: 100%;
     background-color: #ddd;
+}
+
+main {
+    height: 100%;
+    width: 100%;
 
     display: grid;
     grid-template-areas:
@@ -95,17 +100,11 @@ main {
     background-color: grey;
 }
 
-#quest-root-container {
+#quest-list {
     width: 90%;
     height: 90%;
     grid-area: quest-list;
     //margin-left: 2rem;
-    background-color: #444;
-}
-
-#quest-list {
-    height: 100%;
-    padding: 1rem;
 
     display: flex;
     flex-direction: column;
@@ -113,6 +112,9 @@ main {
     align-items: flex-start;
 
     gap: 1rem;
+    padding: 1rem;
+
+    background-color: #444;
 }
 
 .quest {
