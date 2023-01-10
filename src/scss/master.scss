@@ -1,6 +1,7 @@
 @use 'colors';
 @use 'sass:math';
 @use 'quest-list';
+@use 'popup';
 
 $navbar-height: 90vh;
 $navbar-width: 5vw;
@@ -52,32 +53,6 @@ main {
     grid-template-columns: ($navbar-width + 2vw) repeat(2, 1fr);
     justify-items: center;
     align-items: flex-start;
-}
-
-#bg-cover {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100vw;
-
-    background-color: #00000033;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-#main-popup {
-    width: 30%;
-    height: 30%;
-
-    background-color: white;
-
-    overflow-y: scroll;
-
-
 }
 
 #navbar {

@@ -1,0 +1,25 @@
+#bg-cover {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+
+    background-color: #00000033;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#main-popup {
+    width: 30%;
+    height: 30%;
+
+    background-color: white;
+
+    overflow-y: scroll;
+
+
+}
