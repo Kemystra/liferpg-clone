@@ -1,0 +1,51 @@
+#quest-list {
+    width: 90%;
+    height: 90%;
+    grid-area: quest-list;
+    //margin-left: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    gap: 1rem;
+    padding: 1rem;
+
+    background-color: #444;
+}
+
+.quest {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    align-items: center;
+
+    background-color: #eee;
+
+    div {
+        height: 100%;
+    }
+}
+
+.quest-text-part {
+    width: $quest-text-part-width;
+}
+
+.quest-action-part {
+    padding-right: 1rem;
+    width: 100% - $quest-text-part-width;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+
+    gap: 1rem;
+}
+
+.quest-text {
+    margin: 0;
+}
